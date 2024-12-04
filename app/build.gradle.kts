@@ -62,6 +62,7 @@ dependencies {
     //Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     //Kotlinx Serialization Json
     implementation(libs.kotlinx.serialization.json)
 
