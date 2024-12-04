@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "646849407722",
+    "project_id": "arlib-5ae6a",
+    "storage_bucket": "arlib-5ae6a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646849407722:android:7f6723547ad378ee6a0593",
+        "android_client_info": {
+          "package_name": "com.mobile.medicapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWs96NkFWmMY_GZkC4wZB3wTIfne3yNzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
