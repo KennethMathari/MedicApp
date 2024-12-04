@@ -31,7 +31,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mobile.medicapp.R
 import com.mobile.medicapp.ui.component.Loading
 import com.mobile.medicapp.ui.theme.MedicAppTheme
@@ -50,10 +49,10 @@ fun LoginScreen(
     val loginState by loginViewModel.loginState.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
-    Box{
-        if (loginState.isLoading){
+    Box {
+        if (loginState.isLoading) {
             Loading()
-        } else{
+        } else {
             Column(
                 modifier = modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
@@ -99,7 +98,7 @@ fun LoginScreen(
 
                 Button(
                     onClick = {
-                        if (email.isNotEmpty() && password.isNotEmpty()){
+                        if (email.isNotEmpty() && password.isNotEmpty()) {
                             loginViewModel.userLogin(email, password)
                         }
                     },
@@ -133,7 +132,7 @@ fun LoginScreen(
 
     LaunchedEffect(loginState.success) {
         scope.launch {
-            if (loginState.success){
+            if (loginState.success) {
                 snackbarHostState.showSnackbar("Success")
             }
         }
