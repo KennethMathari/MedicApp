@@ -21,6 +21,8 @@ class DashboardViewModel @Inject constructor(
     private val _dashboardState = MutableStateFlow(DashboardState())
     val dashboardState: StateFlow<DashboardState> get() = _dashboardState.asStateFlow()
 
+    private val _searchMedicine = MutableStateFlow("")
+
     init {
         getMedicineList()
     }
@@ -57,7 +59,9 @@ class DashboardViewModel @Inject constructor(
 
                     is NetworkResult.Success -> {
                         _dashboardState.value = DashboardState(
-                            isLoading = false, medicineList = result.data, errorMessage = null
+                            isLoading = false,
+                            medicineList = result.data.medicine,
+                            errorMessage = null
                         )
                     }
                 }
@@ -69,6 +73,22 @@ class DashboardViewModel @Inject constructor(
     private fun updateErrorMessage(errorMessage: String) {
         _dashboardState.value = DashboardState(
             isLoading = false, medicineList = null, errorMessage = errorMessage
+        )
+    }
+
+    fun onSearchMedicine(query: String) {
+        _searchMedicine.value = query
+        applySearchFilter()
+    }
+
+    private fun applySearchFilter() {
+        val query = _searchMedicine.value.lowercase()
+        val filteredMedicineList = _dashboardState.value.medicineList?.filter {
+            it.name.lowercase().contains(query)
+        }
+
+        _dashboardState.value = DashboardState(
+            isLoading = false, errorMessage = null, medicineList = filteredMedicineList
         )
     }
 }

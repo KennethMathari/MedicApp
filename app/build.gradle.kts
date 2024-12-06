@@ -6,6 +6,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     kotlin("plugin.serialization") version "1.9.0"
+    id("kotlin-parcelize")
 }
 
 android {
@@ -71,6 +72,11 @@ dependencies {
     implementation(libs.retrofit)
     //Kotlin Serialization Converter
     implementation(libs.retrofit2.kotlinx.serialization.converter)
+    //List-Detail Layout
+    implementation(libs.androidx.adaptive)
+    implementation(libs.androidx.adaptive.layout)
+    implementation(libs.androidx.adaptive.navigation)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
