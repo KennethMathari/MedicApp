@@ -1,5 +1,6 @@
 package com.mobile.medicapp.data.repository
 
+import com.mobile.medicapp.data.FirebaseAuthDataSource
 import com.mobile.medicapp.domain.repository.AuthRepository
 import com.mobile.medicapp.utils.NetworkResult
 import javax.inject.Inject

@@ -30,7 +30,9 @@ fun Navigation(
         }
 
         composable<Dashboard> {
-            DashboardScreen()
+            DashboardScreen(
+                snackbarHostState = snackbarHostState
+            )
         }
     }
 

@@ -1,4 +1,4 @@
-package com.mobile.medicapp.data.repository
+package com.mobile.medicapp.data
 
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
