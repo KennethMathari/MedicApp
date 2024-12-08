@@ -39,6 +39,11 @@ Medic is a native Android application designed to provide users with a seamless 
 - <b>Turbine </b> : Specialized library for testing kotlinx.coroutines Flow.
 
 ## Medic App Screenshots
+> ![Screenshots](https://github.com/user-attachments/assets/2b311a2a-c089-40fa-8f61-10709c7d8c75)
+
+## List-Detail Layout View
+> ![List Detail Layout](https://github.com/user-attachments/assets/56da4006-13fc-46aa-afb6-83498060876e)
+
 
 ## APK File
 The app APK can be found from the latest successful action on the [GitHub Actions](https://github.com/KennethMathari/MedicApp/actions) tab
