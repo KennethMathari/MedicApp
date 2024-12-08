@@ -17,6 +17,7 @@ Medic is a native Android application designed to provide users with a seamless 
  - Error handling for invalid credentials or network issues.
 2. Medicine List Screen:
  - Displays a scrollable list of medicines.
+ - Greet user based on time of the day.
  - Includes a search bar at the top for filtering medicines by name.
 3. Medicine Details Screen:
  - Provides detailed information about the selected medicine, such as name, dose, route, use etc
