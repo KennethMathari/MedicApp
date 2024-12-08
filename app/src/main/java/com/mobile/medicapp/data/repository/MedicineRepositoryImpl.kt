@@ -1,6 +1,9 @@
 package com.mobile.medicapp.data.repository
 
-import com.mobile.medicapp.data.network.model.MedicineListDTO
+import com.mobile.medicapp.data.local.dao.MedicineDao
+import com.mobile.medicapp.data.mapper.toMedicine
+import com.mobile.medicapp.data.mapper.toMedicineEntity
+import com.mobile.medicapp.data.network.model.Medicine
 import com.mobile.medicapp.data.network.service.MedicineService
 import com.mobile.medicapp.di.IoDispatcher
 import com.mobile.medicapp.domain.repository.MedicineRepository
@@ -14,13 +17,27 @@ import javax.inject.Inject
 
 class MedicineRepositoryImpl @Inject constructor(
     private val medicineService: MedicineService,
-    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
+    private val medicineDao: MedicineDao,
 ) : MedicineRepository {
 
-    override suspend fun getMedicineList(): Flow<NetworkResult<MedicineListDTO>> {
+    override suspend fun getMedicineList(): Flow<NetworkResult<List<Medicine>>> {
         return flow {
-            val result = safeApiCall {
-                medicineService.getMedicineList()
+
+            val cachedMedicines = medicineDao.getAllMedicines().map {
+                it.toMedicine()
+            }
+
+            if (cachedMedicines.isNotEmpty()) {
+                emit(NetworkResult.Success(cachedMedicines))
+            }
+
+            val result = safeApiCall { medicineService.getMedicineList().medicine }
+
+            if (result is NetworkResult.Success) {
+                // Cache the fetched data
+                val medicineEntities = result.data.map { it.toMedicineEntity() }
+                medicineDao.insertAll(medicineEntities)
             }
 
             emit(result)

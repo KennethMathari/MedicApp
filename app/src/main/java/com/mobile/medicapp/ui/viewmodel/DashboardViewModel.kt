@@ -60,7 +60,7 @@ class DashboardViewModel @Inject constructor(
                     is NetworkResult.Success -> {
                         _dashboardState.value = DashboardState(
                             isLoading = false,
-                            medicineList = result.data.medicine,
+                            medicineList = result.data,
                             errorMessage = null
                         )
                     }
