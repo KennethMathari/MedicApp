@@ -24,8 +24,9 @@ Medic is a native Android application designed to provide users with a seamless 
 ## API
 > Medicine List API: <https://run.mocky.io/v3/147f90e2-95cd-4d6a-8e15-ae13a0f9ad9c>
 
-## Libraries & Plugins
+## Libraries, Plugins & Tools
 - <b>Jetpack Compose </b>: For building the UI in a declarative manner.
+- <b> Github Actions </b>: Automate CI/CD workflows and manages pipelines.
 - <b>Dagger Hilt </b>: For dependency injection to manage dependencies efficiently.
 - <b>Retrofit </b>: For network operations to fetch data from the API.
 - <b>Firebase Auth</b>: For user authentication
