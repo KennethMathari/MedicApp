@@ -8,4 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface MedicineRepository {
 
     suspend fun getMedicineList(): Flow<NetworkResult<List<Medicine>>>
+
+    suspend fun getCachedMedicineList(): List<Medicine>
 }

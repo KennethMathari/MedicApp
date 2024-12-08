@@ -2,11 +2,11 @@ package com.mobile.medicapp.data.mapper
 
 import com.mobile.medicapp.data.local.entity.MedicineEntity
 import com.mobile.medicapp.data.network.model.Medicine
-import kotlin.random.Random
+import java.util.UUID
 
-fun Medicine.toMedicineEntity(): MedicineEntity{
+fun Medicine.toMedicineEntity(): MedicineEntity {
     return MedicineEntity(
-        id = Random.toString(),
+        id = UUID.randomUUID().toString(),
         dose = this.dose,
         name = this.name,
         route = this.route,

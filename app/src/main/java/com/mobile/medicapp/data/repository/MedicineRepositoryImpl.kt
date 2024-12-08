@@ -13,6 +13,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MedicineRepositoryImpl @Inject constructor(
@@ -37,10 +38,20 @@ class MedicineRepositoryImpl @Inject constructor(
             if (result is NetworkResult.Success) {
                 // Cache the fetched data
                 val medicineEntities = result.data.map { it.toMedicineEntity() }
+                medicineDao.deleteAllMedicines()
                 medicineDao.insertAll(medicineEntities)
             }
 
             emit(result)
         }.flowOn(ioDispatcher)
+    }
+
+    override suspend fun getCachedMedicineList(): List<Medicine> {
+        return withContext(ioDispatcher) {
+            val cachedMedicines = medicineDao.getAllMedicines().map {
+                it.toMedicine()
+            }
+            cachedMedicines.ifEmpty { emptyList() }
+        }
     }
 }

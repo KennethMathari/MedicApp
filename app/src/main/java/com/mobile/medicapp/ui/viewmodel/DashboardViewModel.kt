@@ -2,6 +2,7 @@ package com.mobile.medicapp.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mobile.medicapp.data.network.model.Medicine
 import com.mobile.medicapp.domain.repository.MedicineRepository
 import com.mobile.medicapp.ui.state.DashboardState
 import com.mobile.medicapp.utils.NetworkResult
@@ -50,7 +51,7 @@ class DashboardViewModel @Inject constructor(
                     }
 
                     is NetworkResult.NetworkError -> {
-                        updateErrorMessage("Unable to Medicine list! Check Internet Connection.")
+                        updateErrorMessage("Check Internet Connection.")
                     }
 
                     is NetworkResult.ServerError -> {
@@ -59,9 +60,7 @@ class DashboardViewModel @Inject constructor(
 
                     is NetworkResult.Success -> {
                         _dashboardState.value = DashboardState(
-                            isLoading = false,
-                            medicineList = result.data,
-                            errorMessage = null
+                            isLoading = false, medicineList = result.data, errorMessage = null
                         )
                     }
                 }
@@ -70,10 +69,12 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
-    private fun updateErrorMessage(errorMessage: String) {
+    private suspend fun updateErrorMessage(errorMessage: String) {
+
         _dashboardState.value = DashboardState(
-            isLoading = false, medicineList = null, errorMessage = errorMessage
+            isLoading = false, medicineList = getCachedMedicine(), errorMessage = errorMessage
         )
+
     }
 
     fun onSearchMedicine(query: String) {
@@ -90,5 +91,9 @@ class DashboardViewModel @Inject constructor(
         _dashboardState.value = DashboardState(
             isLoading = false, errorMessage = null, medicineList = filteredMedicineList
         )
+    }
+
+    private suspend fun getCachedMedicine(): List<Medicine> {
+        return medicineRepository.getCachedMedicineList()
     }
 }
