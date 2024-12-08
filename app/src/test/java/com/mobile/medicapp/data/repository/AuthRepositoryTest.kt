@@ -34,5 +34,4 @@ class AuthRepositoryTest {
 
         assertEquals(NetworkResult.NetworkError(expectedException), result)
     }
-
 }

@@ -41,7 +41,6 @@ class MedicineRepositoryTest {
 
     @Test
     fun getCachedMedicineListReturnsList() = runTest {
-
         coEvery {
             medicineRepository.getCachedMedicineList()
         } returns listOf(medicine)
@@ -53,7 +52,6 @@ class MedicineRepositoryTest {
 
     @Test
     fun getCachedMedicineListReturnsEmptyList() = runTest {
-
         val medicineList = emptyList<Medicine>()
 
         coEvery {
