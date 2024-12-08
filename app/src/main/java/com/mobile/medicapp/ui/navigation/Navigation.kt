@@ -25,7 +25,10 @@ fun Navigation(
     ) {
         composable<Login> {
             LoginScreen(
-                snackbarHostState = snackbarHostState
+                snackbarHostState = snackbarHostState,
+                onLoginSuccess = {
+                    navHostController.navigate(Dashboard)
+                }
             )
         }
 

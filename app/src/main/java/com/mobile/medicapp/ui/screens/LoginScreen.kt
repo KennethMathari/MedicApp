@@ -41,7 +41,8 @@ import kotlinx.coroutines.launch
 fun LoginScreen(
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState,
-    loginViewModel: LoginViewModel = hiltViewModel()
+    loginViewModel: LoginViewModel = hiltViewModel(),
+    onLoginSuccess: ()-> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -133,7 +134,7 @@ fun LoginScreen(
     LaunchedEffect(loginState.success) {
         scope.launch {
             if (loginState.success) {
-                snackbarHostState.showSnackbar("Success")
+                onLoginSuccess()
             }
         }
     }
@@ -146,7 +147,8 @@ fun LoginScreen(
 fun LoginScreenPreview() {
     MedicAppTheme {
         LoginScreen(
-            snackbarHostState = SnackbarHostState()
+            snackbarHostState = SnackbarHostState(),
+            onLoginSuccess = {}
         )
     }
 
