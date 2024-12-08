@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Loading(){
+fun Loading() {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -25,8 +25,7 @@ fun Loading(){
             modifier = Modifier.size(70.dp),
             strokeWidth = 5.dp,
             color = Color.Blue,
-            trackColor = Color.Gray,
+            trackColor = Color.Gray
         )
-
     }
 }

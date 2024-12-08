@@ -10,7 +10,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun InfoRow(
-    label: String, value: String, modifier: Modifier = Modifier
+    label: String,
+    value: String,
+    modifier: Modifier = Modifier
 ) {
     Row(modifier = modifier.padding(vertical = 2.dp)) {
         Text(text = label)

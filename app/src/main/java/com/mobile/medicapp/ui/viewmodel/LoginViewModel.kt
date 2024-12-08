@@ -15,43 +15,43 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _loginState = MutableStateFlow(LoginState())
     val loginState: StateFlow<LoginState> get() = _loginState.asStateFlow()
 
-    fun userLogin(email: String, password: String){
-    viewModelScope.launch {
-        _loginState.value = LoginState(
-            isLoading = true,
-            success = false,
-            errorMessage = null
-        )
+    fun userLogin(email: String, password: String) {
+        viewModelScope.launch {
+            _loginState.value = LoginState(
+                isLoading = true,
+                success = false,
+                errorMessage = null
+            )
 
-        val result = authRepository.userLogin(email, password)
+            val result = authRepository.userLogin(email, password)
 
-        when(result){
-            is NetworkResult.ClientError -> {
-                updateErrorMessage("Unable to Login! Please Try Again.")
-            }
-            is NetworkResult.NetworkError -> {
-                updateErrorMessage("Unable to Login! Check Internet Connection.")
-            }
-            is NetworkResult.ServerError -> {
-                updateErrorMessage("Oops! Our Server is Down")
-            }
-            is NetworkResult.Success -> {
-                _loginState.value = LoginState(
-                    isLoading = false,
-                    success = true,
-                    errorMessage = null
-                )
+            when (result) {
+                is NetworkResult.ClientError -> {
+                    updateErrorMessage("Unable to Login! Please Try Again.")
+                }
+                is NetworkResult.NetworkError -> {
+                    updateErrorMessage("Unable to Login! Check Internet Connection.")
+                }
+                is NetworkResult.ServerError -> {
+                    updateErrorMessage("Oops! Our Server is Down")
+                }
+                is NetworkResult.Success -> {
+                    _loginState.value = LoginState(
+                        isLoading = false,
+                        success = true,
+                        errorMessage = null
+                    )
+                }
             }
         }
     }
-    }
 
-    private fun updateErrorMessage(errorMessage: String){
+    private fun updateErrorMessage(errorMessage: String) {
         _loginState.value = LoginState(
             isLoading = false,
             success = false,

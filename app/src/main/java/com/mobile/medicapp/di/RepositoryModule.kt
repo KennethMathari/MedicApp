@@ -20,5 +20,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindMedicineRepository(medicineRepositoryImpl: MedicineRepositoryImpl): MedicineRepository
+    abstract fun bindMedicineRepository(
+        medicineRepositoryImpl: MedicineRepositoryImpl
+    ): MedicineRepository
 }

@@ -64,17 +64,14 @@ class DashboardViewModel @Inject constructor(
                         )
                     }
                 }
-
             }
         }
     }
 
     private suspend fun updateErrorMessage(errorMessage: String) {
-
         _dashboardState.value = DashboardState(
             isLoading = false, medicineList = getCachedMedicine(), errorMessage = errorMessage
         )
-
     }
 
     fun onSearchMedicine(query: String) {

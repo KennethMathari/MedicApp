@@ -7,7 +7,6 @@ import androidx.compose.ui.Modifier
 @Composable
 fun SignupScreen(
     modifier: Modifier = Modifier,
-    snackbarHostState: SnackbarHostState,
-){
-
+    snackbarHostState: SnackbarHostState
+) {
 }

@@ -30,7 +30,6 @@ fun DashboardScreen(
     dashboardViewModel: DashboardViewModel = hiltViewModel(),
     snackbarHostState: SnackbarHostState
 ) {
-
     val dashboardState by dashboardViewModel.dashboardState.collectAsStateWithLifecycle()
 
     val navigator = rememberListDetailPaneScaffoldNavigator<MedicinePresentation>()
@@ -41,16 +40,17 @@ fun DashboardScreen(
         if (dashboardState.isLoading) {
             Loading()
         } else {
-
             BackHandler(navigator.canNavigateBack()) {
                 navigator.navigateBack()
             }
 
-            ListDetailPaneScaffold(directive = navigator.scaffoldDirective,
+            ListDetailPaneScaffold(
+                directive = navigator.scaffoldDirective,
                 value = navigator.scaffoldValue,
                 listPane = {
                     AnimatedPane {
-                        MedicineList(modifier = modifier,
+                        MedicineList(
+                            modifier = modifier,
                             dashboardState = dashboardState,
                             dashboardViewModel = dashboardViewModel,
                             onMedicineClicked = { medicine ->
@@ -58,7 +58,8 @@ fun DashboardScreen(
                                     ListDetailPaneScaffoldRole.Detail,
                                     medicine.toMedicinePresentation()
                                 )
-                            })
+                            }
+                        )
                     }
                 },
                 detailPane = {
@@ -69,7 +70,8 @@ fun DashboardScreen(
                             )
                         }
                     }
-                })
+                }
+            )
         }
     }
 
@@ -80,5 +82,4 @@ fun DashboardScreen(
             }
         }
     }
-
 }

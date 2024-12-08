@@ -14,9 +14,9 @@ import com.mobile.medicapp.ui.screens.LoginScreen
 
 @Composable
 fun Navigation(
-    navHostController: NavHostController, snackbarHostState: SnackbarHostState
+    navHostController: NavHostController,
+    snackbarHostState: SnackbarHostState
 ) {
-
     val currentUser = Firebase.auth.currentUser
 
     NavHost(
@@ -38,5 +38,4 @@ fun Navigation(
             )
         }
     }
-
 }

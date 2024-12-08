@@ -1,7 +1,6 @@
 package com.mobile.medicapp.di
 
 import android.content.Context
-import androidx.room.Room
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.mobile.medicapp.data.FirebaseAuthDataSource
 import com.mobile.medicapp.data.local.MedicineDatabase
@@ -51,7 +50,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMedicineService(retrofit: Retrofit): MedicineService{
+    fun provideMedicineService(retrofit: Retrofit): MedicineService {
         return retrofit.create(MedicineService::class.java)
     }
 
@@ -69,7 +68,6 @@ object AppModule {
     @IoDispatcher
     @Provides
     fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
-
 }
 
 @Qualifier

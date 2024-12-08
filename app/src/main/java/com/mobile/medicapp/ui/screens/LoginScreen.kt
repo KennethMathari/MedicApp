@@ -42,7 +42,7 @@ fun LoginScreen(
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState,
     loginViewModel: LoginViewModel = hiltViewModel(),
-    onLoginSuccess: ()-> Unit
+    onLoginSuccess: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -117,7 +117,6 @@ fun LoginScreen(
                         text = "Create Account", fontWeight = FontWeight.Bold
                     )
                 }
-
             }
         }
     }
@@ -128,7 +127,6 @@ fun LoginScreen(
                 snackbarHostState.showSnackbar(errorMessage)
             }
         }
-
     }
 
     LaunchedEffect(loginState.success) {
@@ -138,8 +136,6 @@ fun LoginScreen(
             }
         }
     }
-
-
 }
 
 @Preview(showSystemUi = true)
@@ -151,5 +147,4 @@ fun LoginScreenPreview() {
             onLoginSuccess = {}
         )
     }
-
 }

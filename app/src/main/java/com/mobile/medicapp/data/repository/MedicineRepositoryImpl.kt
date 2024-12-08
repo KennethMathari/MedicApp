@@ -19,12 +19,11 @@ import javax.inject.Inject
 class MedicineRepositoryImpl @Inject constructor(
     private val medicineService: MedicineService,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
-    private val medicineDao: MedicineDao,
+    private val medicineDao: MedicineDao
 ) : MedicineRepository {
 
     override suspend fun getMedicineList(): Flow<NetworkResult<List<Medicine>>> {
         return flow {
-
             val cachedMedicines = medicineDao.getAllMedicines().map {
                 it.toMedicine()
             }

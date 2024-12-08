@@ -43,7 +43,6 @@ fun MedicineList(
     val user = Firebase.auth.currentUser?.email
     val greeting = dashboardViewModel.getGreeting()
 
-
     var searchMedicine by remember { mutableStateOf("") }
 
     Column(
@@ -95,7 +94,9 @@ fun MedicineList(
 
 @Composable
 fun MedicineCard(
-    medicine: Medicine, onMedicineClicked: (Medicine) -> Unit, modifier: Modifier = Modifier
+    medicine: Medicine,
+    onMedicineClicked: (Medicine) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Card(
         onClick = { onMedicineClicked(medicine) },

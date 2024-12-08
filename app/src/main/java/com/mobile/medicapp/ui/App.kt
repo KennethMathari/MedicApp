@@ -15,7 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.mobile.medicapp.ui.navigation.Navigation
 
 @Composable
-fun App(){
+fun App() {
     val navController = rememberNavController()
     val snackbarHostState = remember { SnackbarHostState() }
     Scaffold(
@@ -27,7 +27,7 @@ fun App(){
         Column(
             modifier = Modifier
                 .padding(innerPadding),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Navigation(
                 navHostController = navController,

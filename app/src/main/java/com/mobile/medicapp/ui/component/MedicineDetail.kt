@@ -15,14 +15,16 @@ import com.mobile.medicapp.ui.model.MedicinePresentation
 
 @Composable
 fun MedicineDetail(
-    medicinePresentation: MedicinePresentation, modifier: Modifier = Modifier
+    medicinePresentation: MedicinePresentation,
+    modifier: Modifier = Modifier
 ) {
-
     Column(
         verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Card(
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant
+            ),
             elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
             modifier = modifier
                 .fillMaxWidth()
@@ -37,7 +39,5 @@ fun MedicineDetail(
                 InfoRow(label = "Route:", value = medicinePresentation.route)
             }
         }
-
     }
-
 }

@@ -13,16 +13,16 @@ class FirebaseAuthDataSource {
         return try {
             suspendCancellableCoroutine { continuation ->
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            continuation.resume(NetworkResult.Success(true))
-                        } else {
-                            continuation.resume(
-                                NetworkResult.NetworkError(
-                                    task.exception?.cause ?: Exception("Login failed")
-                                )
+                    if (task.isSuccessful) {
+                        continuation.resume(NetworkResult.Success(true))
+                    } else {
+                        continuation.resume(
+                            NetworkResult.NetworkError(
+                                task.exception?.cause ?: Exception("Login failed")
                             )
-                        }
+                        )
                     }
+                }
             }
         } catch (e: Exception) {
             NetworkResult.ClientError(e.cause ?: Exception(e.message))
