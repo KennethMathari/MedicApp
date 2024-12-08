@@ -83,8 +83,13 @@ dependencies {
     implementation(libs.androidx.room.ktx)
 
 
-
     testImplementation(libs.junit)
+    //mockK
+    testImplementation(libs.mockk)
+    //Instantiator
+    testImplementation(libs.instantiator)
+    //Kotlin Coroutine Test
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
