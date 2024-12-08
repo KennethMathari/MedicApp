@@ -28,6 +28,7 @@ Medic is a native Android application designed to provide users with a seamless 
 - <b>Jetpack Compose </b>: For building the UI in a declarative manner.
 - <b>Dagger Hilt </b>: For dependency injection to manage dependencies efficiently.
 - <b>Retrofit </b>: For network operations to fetch data from the API.
+- <b>Firebase Auth</b>: For user authentication
 - <b>Kotlinx Serialization </b>: Facilitates data serialization and deserialization in a format-agnostic way.
 - <b>Room </b>: For local storage.
 - <b>List-Detail Layout </b>: For a dual-pane layout where one pane presents a list of items and another pane displays the details of items selected from the list.
