@@ -28,8 +28,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -55,25 +54,25 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    //Firebase BoM
+    // Firebase BoM
     implementation(platform(libs.firebase.bom))
-    //Firebase Auth
+    // Firebase Auth
     implementation(libs.firebase.auth)
-    //Compose Navigation
+    // Compose Navigation
     implementation(libs.androidx.navigation.compose)
-    //Dagger Hilt
+    // Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    //Kotlinx Serialization Json
+    // Kotlinx Serialization Json
     implementation(libs.kotlinx.serialization.json)
-    //OkHttp
+    // OkHttp
     implementation(libs.okhttp)
-    //Retrofit
+    // Retrofit
     implementation(libs.retrofit)
-    //Kotlin Serialization Converter
+    // Kotlin Serialization Converter
     implementation(libs.retrofit2.kotlinx.serialization.converter)
-    //List-Detail Layout
+    // List-Detail Layout
     implementation(libs.androidx.adaptive)
     implementation(libs.androidx.adaptive.layout)
     implementation(libs.androidx.adaptive.navigation)
@@ -84,11 +83,11 @@ dependencies {
 
 
     testImplementation(libs.junit)
-    //mockK
+    // mockK
     testImplementation(libs.mockk)
-    //Instantiator
+    // Instantiator
     testImplementation(libs.instantiator)
-    //Kotlin Coroutine Test
+    // Kotlin Coroutine Test
     testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
