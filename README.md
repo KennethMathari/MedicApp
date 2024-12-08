@@ -46,6 +46,11 @@ Medic is a native Android application designed to provide users with a seamless 
 ## List-Detail Layout View
 > ![List Detail Layout](https://github.com/user-attachments/assets/56da4006-13fc-46aa-afb6-83498060876e)
 
+## Future Enhancements
+- Add more authentication options, such as Google or phone authentication.
+- Implement medicine categories for easier navigation.
+- Modularize the app if more features are added.
+
 
 ## APK File
 The app APK can be found from the latest successful action on the [GitHub Actions](https://github.com/KennethMathari/MedicApp/actions) tab
